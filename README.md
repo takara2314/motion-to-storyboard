@@ -1,6 +1,6 @@
 # motion-to-storyboard
 
-A Go CLI that samples a video at fixed intervals and creates a single storyboard image with timestamps and directional arrows.
+Turn motion into compact, timestamped visual context for AI. [Why? →](#why)
 
 ## ✨ Example
 
@@ -97,6 +97,24 @@ Crop values use FFmpeg crop-filter expressions. Specify all of `x`, `y`, `w`, an
 The CLI rejects missing input paths, invalid timestamps, non-positive `-interval` or `-scale`, an end time that is not after the start time, incomplete crops, non-positive `-columns`, and ranges outside the input duration.
 
 There is no application-level frame limit. A long input or very short interval can create an image too large for FFmpeg or available memory; increase `-interval` or narrow the range with `-start` and `-end`.
+
+<a id="why"></a>
+
+## 💡 Why
+
+Motion is often the missing context when asking an AI to explain a UI flow, review an interaction, or help reproduce an animation. Instead of attaching a video or describing each step manually, convert the relevant clip into a timestamped storyboard and include the output image in your prompt.
+
+```text
+screen recording or animation → motion-to-storyboard → image attached to an AI prompt
+```
+
+For example:
+
+```sh
+motion-to-storyboard -interval 100ms recording.mp4 storyboard.png
+```
+
+Then ask your AI: “Describe this interaction, including the order and timing of each change.”
 
 ## 🛠️ Development
 
