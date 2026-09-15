@@ -6,10 +6,10 @@ A Go CLI that samples a video at fixed intervals and creates a single storyboard
 
 | Input | Output |
 | --- | --- |
-| [docs/input.gif](docs/input.gif) | ![docs/output.png](docs/output.png) |
+| ![docs/input.mp4](docs/input.mp4) | ![docs/output.png](docs/output.png) |
 
 ```sh
-go run ./cmd/motion-to-storyboard -interval 25ms docs/input.gif docs/output.png
+go run ./cmd/motion-to-storyboard -interval 25ms docs/input.mp4 docs/output.png
 ```
 
 ## 🔧 Requirements
